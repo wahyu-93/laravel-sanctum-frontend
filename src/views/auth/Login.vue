@@ -41,6 +41,10 @@ export default {
             }
         }
     },
+
+    mounted(){
+        document.title = "login"
+    },
     
     methods:{
         ...mapActions({
