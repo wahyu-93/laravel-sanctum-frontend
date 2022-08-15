@@ -12,6 +12,10 @@
                     <li class="nav-item">   
                         <router-link class="nav-link" aria-current="page" to="/" exact>Home</router-link>
                     </li>
+
+                     <li class="nav-item">   
+                        <router-link class="nav-link" aria-current="page" :to="{ name: 'post.index' }" >Post</router-link>
+                    </li>
                 </ul>
 
                 <ul class="navbar-nav mr-right mb-2 mb-lg-0">                    
@@ -30,12 +34,10 @@
                                 <li><router-link class="dropdown-item" :to="{name: 'post.new'}">New Post</router-link></li>
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#" @click.prevent="logout">logout</a></li>
                             </ul>
                         </li>
                     </template>
-                    
-
                 </ul>
             </div>
         </div>
@@ -43,7 +45,7 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+    import { mapGetters, mapActions } from 'vuex'
 
     export default{
         computed: {
@@ -52,5 +54,16 @@
                 user : 'auth/user'
             })
         },
+
+        methods: {
+            ...mapActions({
+                signout: 'auth/logout'
+            }),
+
+            async logout(){
+               await this.signout()
+               this.$router.replace('/login')
+            }
+        }
     }
 </script>   

@@ -23,6 +23,11 @@ const routes = [
     meta: {
       auth: true
     }
+  },
+  {
+    path: '/post',
+    name: 'post.index',
+    component: () => import(/* webpackChunkName: "post index" */ '../views/post/index.vue'),
   }
 ]
 

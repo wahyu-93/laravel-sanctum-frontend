@@ -31,6 +31,12 @@ export default {
 
             dispatch('me')
         },
+        
+        async logout({dispatch}){
+            await axios.post('logout')  
+            dispatch('me')
+            console.log('tes')
+        },
 
         async me({commit}){
             try {
