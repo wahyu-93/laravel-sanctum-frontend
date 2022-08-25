@@ -27,7 +27,12 @@ const routes = [
   {
     path: '/post',
     name: 'post.index',
-    component: () => import(/* webpackChunkName: "post index" */ '../views/post/index.vue'),
+    component: () => import(/* webpackChunkName: "post index" */ '../views/post/Index.vue'),
+  },
+  {
+    path: '/post/:subjectSlug/:postSlug',
+    name: 'post.show',
+    component: () => import(/* webpackChunkName: "post show" */ '../views/post/Show.vue'),
   }
 ]
 
