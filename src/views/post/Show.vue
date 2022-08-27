@@ -5,7 +5,7 @@
                 <h1>{{ post.name }}</h1>
                 
                 <div class="text-secondary">
-                    <router-link to="abc">{{ post.subject.name }}</router-link> &middot;
+                    <router-link :to="{ name: 'subject.show', params: { subjectSlug: post.subject.name}}">{{ post.subject.name }}</router-link> &middot;
                     {{ post.publish }} by {{post.author }}
                 </div>
 
@@ -44,7 +44,6 @@ export default {
         async fetchPost(){
             let { data } = await axios.get(`api/posts/${this.request('subjectSlug')}/${this.request('postSlug')}`)
             this.post = data.data
-            console.log(this.post)
         }
     }
 

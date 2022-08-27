@@ -33,6 +33,11 @@ const routes = [
     path: '/post/:subjectSlug/:postSlug',
     name: 'post.show',
     component: () => import(/* webpackChunkName: "post show" */ '../views/post/Show.vue'),
+  },
+  {
+    path: '/subject/:subjectSlug',
+    name: 'subject.show',
+    component: () => import(/* webpackChunkName: "subject show" */ '../views/subject/Show.vue'),
   }
 ]
 
